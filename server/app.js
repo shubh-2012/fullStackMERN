@@ -39,6 +39,7 @@ app.get('/about',middleware,(req,res) =>{
 });
 
 app.get('/contact',(req,res) =>{
+    res.cookie("test",'shubh');
     res.send(`Hello World get my contact`);
 });
 
