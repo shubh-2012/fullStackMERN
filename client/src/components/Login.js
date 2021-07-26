@@ -1,10 +1,11 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
 import picture1 from '../images/picture1.jpg';
 import '../App.css';
 const Login=()=>{
     return (
         <>
-            <section id="home">
+            <section id="login">
   			<div className="row">
   				
   			

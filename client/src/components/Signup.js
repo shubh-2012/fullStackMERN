@@ -1,11 +1,13 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
+import { NavLink } from 'react-router-dom';
 import picture1 from '../images/picture1.jpg';
 import '../App.css';
 const Signup = () =>{
     return (
         <>
         
-            <section id="home">
+            <section id="signup">
   			<div className="row">
   				
   			
@@ -28,7 +30,7 @@ const Signup = () =>{
 				                            <div className="group"> <label for="pass" className="label">Email Address</label> <input id="pass" type="text" className="input" placeholder="Enter your email address"/> </div>
 				                            <div className="group"> <input type="submit" className="button" value="Sign Up"/> </div>
 				                            <div className="hr"></div>
-				                            <div className="foot"> <label for="tab-1">Already a Member?</label> </div>
+				                            <div className="foot"> <NavLink to="Login">Already Registered?</NavLink> </div>
 				                        </div>
 				                    </div>
 				                </div>
