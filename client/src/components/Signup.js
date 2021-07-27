@@ -42,7 +42,7 @@ const Signup = () =>{
 			window.alert("Successfull");
 			console.log("successfull registration");
 
-			history.push("/login");
+			history.push("/Login");
 		}
 	}
 

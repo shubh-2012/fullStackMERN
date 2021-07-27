@@ -1,9 +1,43 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import picture2 from '../images/profile-pic1.jpg';
 import 'bootstrap/dist/css/bootstrap.css';
-import { NavLink } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import '../App.css';
-const About=()=>{
+
+     
+
+    const About=()=>{
+
+        const history= useHistory();
+
+        const callAboutPage=async () =>{
+            try{
+               const res = await fetch('/About',{
+                   method:"GET",
+                   headers:{
+                       Accept:"application/json",
+                       "Content-Type":"application/json"
+                   },
+                   credentials: "include"
+               });
+   
+               const data = await res.json();
+               console.log(data);
+   
+               if(!res.status=== 200){
+                   const error= new Error(res.error);
+                   throw error;
+               }
+   
+            }catch(err){
+               console.log(err);
+               history.push('/Login');
+            }
+        }   
+    useEffect(()=>{
+        callAboutPage();
+    },[]);
+
     return (
         <>
 
@@ -14,6 +48,7 @@ const About=()=>{
                             <h2 data-heading="main info">About Me</h2>
                         </div>
                     </div>
+                <form method="GET" id="about_page">  
                 <div className="row1">
                     <div className="about-img">
                         <div className="img-box inner-shadow">
@@ -36,6 +71,7 @@ const About=()=>{
                             <a href="#contact" className="link-item btn-1 outer-shadow hover-in-shadow">Hire Me</a>
                     </div>
                 </div>
+                </form>  
                 </div>
                 
                         
