@@ -19,19 +19,21 @@ const Login=()=>{
 			},
 				body:JSON.stringify(
 					{
-						email,password
+						email,
+						password
 					}
 				)
 			});
 
-			const data=  res.json();
+			const data=  await res.json();
 
-			if(res.status=== 400 || !data){
+			if(res.status === 400 || !data){
 				window.alert("Invalid credentials");
 				
 			}
 			else{
-				window.alert("Login Successfull");	
+				window.alert("Login Successfull");
+				console.log(res.status);	
 				history.push("/");
 			}
 	}
