@@ -1,7 +1,7 @@
-import React, { useEffect} from 'react'
+import React, { useEffect,useState} from 'react'
 import picture2 from '../images/profile-pic1.jpg';
 import 'bootstrap/dist/css/bootstrap.css';
-import {useHistory} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import '../App.css';
 
      
@@ -9,8 +9,9 @@ import '../App.css';
     const About=()=>{
 
         const history= useHistory();
+        const [userData,setUserData]=useState({});
 
-        const callAboutPage=async () =>{
+        const callAboutPage =async () =>{
             try{
                const res = await fetch('/About',{
                    method:"GET",
@@ -23,6 +24,7 @@ import '../App.css';
    
                const data = await res.json();
                console.log(data);
+               setUserData(data);
    
                if(!res.status=== 200){
                    const error= new Error(res.error);
@@ -34,9 +36,10 @@ import '../App.css';
                history.push('/Login');
             }
         }   
-    useEffect(()=>{
-        callAboutPage();
-    },[]);
+        
+        useEffect(()=>{
+            callAboutPage();
+        },[]);
 
     return (
         <>
@@ -57,7 +60,7 @@ import '../App.css';
                         
                     </div>
                     <div className="about-info">
-                            <p><span>HI!</span> 
+                            <p><span>HI!, I am {userData.name}</span> 
                                 <br/>Proficient in EM simulation tools like ANSYS HFSS | MATLAB |
                                 <br/>Programming Languages: C|C++
                                 <br/>Web Technologies: HTML,CSS,Javascript,Angular
@@ -68,7 +71,7 @@ import '../App.css';
                             </p>
                             
                             <a href="cv.pdf" className="btn-1 outer-shadow hover-in-shadow">Download CV</a>
-                            <a href="#contact" className="link-item btn-1 outer-shadow hover-in-shadow">Hire Me</a>
+                            <NavLink to="/Contact" className="link-item btn-1 outer-shadow hover-in-shadow">Hire Me</NavLink>
                     </div>
                 </div>
                 </form>  

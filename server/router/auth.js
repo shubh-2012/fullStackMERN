@@ -88,4 +88,9 @@ router.get('/About',authenticate,(req,res) =>{
     res.send(req.rootUser);
 });
 
+router.get('/getdata',authenticate,(req,res) =>{
+    //console.log(`about`);
+    res.send(req.rootUser);
+});
+
 module.exports =router;
