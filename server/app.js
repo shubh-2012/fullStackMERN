@@ -40,10 +40,10 @@ app.get('/signup',(req,res) =>{
    // res.send(`Hello World know about me`);
 //});
 
-app.get('/contact',(req,res) =>{
-    res.cookie("test",'shubh');
-    res.send(`Hello World get my contact`);
-});
+//app.get('/contact',(req,res) =>{
+    //res.cookie("test",'shubh');
+    //res.send(`Hello World get my contact`);
+//});
 
 app.listen(PORT,()=>{
     console.log(`everything is fine at ${PORT}`);

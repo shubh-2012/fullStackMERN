@@ -3,7 +3,7 @@ import '../App.css';
 const Contact=()=>{
 
     
-        const [userData,setUserData]=useState({});
+        const [userData,setUserData]=useState({name:"",email:"",phone:"",message:""});
 
         const userContact =async () =>{
             try{
@@ -17,8 +17,9 @@ const Contact=()=>{
    
                const data = await res.json();
                console.log(data);
-               setUserData(data);
-   
+               setUserData({...userData,name:data.name,email:data.email,phone:data.phone});
+              
+
                if(!res.status=== 200){
                    const error= new Error(res.error);
                    throw error;
@@ -32,6 +33,39 @@ const Contact=()=>{
         useEffect(()=>{
             userContact();
         },[]);
+
+        const handleInputs=(e)=>{
+            const name = e.target.name;
+            const value= e.target.value;
+
+            setUserData({...userData,[name]:value});
+        }
+
+        //send data to database
+
+        const contactForm =async (e) =>{
+            e.preventDefault();
+            const{name,email,phone,message}=userData;
+            const res= await fetch('/contact',{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    name,email,phone,message
+                })
+            });
+
+            const data= await res.json();
+
+            if(!data){
+                console.log("message not sent");
+            }else{
+                    alert("message sent");
+                    setUserData({...userData,message:""});
+            }
+        }
+        
 
     return (
         <>
@@ -73,33 +107,33 @@ const Contact=()=>{
 
                     <div className="row1">
                             <div className="contact-form">
-                                <form id="contact_form" >
+                                <form method="POST" id="contact_form" >
                                     <div className="row1">
                                         <div className="w-50">
                                             <div className="input-group outer-shadow hover-in-shadow">
-                                            <input id="nameField"  type="text" value={userData.name} placeholder="Name" className="input-control"/>	
+                                            <input id="nameField"  type="text" name="name" value={userData.name} onChange={handleInputs} placeholder="Name" className="input-control"/>	
                                             </div>	
 
                                             <div className="input-group outer-shadow hover-in-shadow">
-                                            <input id="emailField"  type="text" value={userData.email} placeholder="E-mail" className="input-control"/>	
+                                            <input id="emailField"  type="text" name="email" value={userData.email} onChange={handleInputs} placeholder="E-mail" className="input-control"/>	
                                             </div>	
 
                                             <div className="input-group outer-shadow hover-in-shadow">
-                                            <input id="mobField"  type="text" value={userData.phone} placeholder="Mobile" className="input-control"/>	
+                                            <input id="mobField"  type="text" name="phone" value={userData.phone} onChange={handleInputs} placeholder="Mobile" className="input-control"/>	
                                             </div>	
 
 
                                     </div>
                                         <div className="w-50">	
                                             <div className="input-group outer-shadow hover-in-shadow">
-                                                <textarea id="message"  className="input-control"  placeholder="message">
+                                                <textarea id="message"  className="input-control" name="message" value={userData.message}  onChange={handleInputs} placeholder="message">
                                                 </textarea>	
                                             </div>
                                         </div>
                                     </div>
                                     <div className="row1">
                                         <div className="submit-btn">
-                                            <button id="send" type="submit" className="btn-1 outer-shadow hover-in-shadow"> 
+                                            <button id="send" onClick={contactForm} type="submit" className="btn-1 outer-shadow hover-in-shadow"> 
                                                 send message
                                             </button>
                                         </div>
