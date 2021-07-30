@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import Login from './components/Login';
 import About from './components/About';
 import Signup from './components/Signup';
+import Logout from './components/Logout';
 const App=() => {
   return (
     <>
@@ -30,6 +31,11 @@ const App=() => {
       <Route path='/Signup'>
         <Signup/>
       </Route>
+
+      <Route path='/Logout'>
+        <Logout/>
+      </Route>
+    
     
     </>
   );
