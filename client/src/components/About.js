@@ -61,7 +61,7 @@ import picture1 from '../images/picture1.jpg';
 				                    <div className="login-space">
 				                        
                                     <form method="POST" className="login">
-                                            <div class="group"> <label for="barber" className="label">Barber</label> <select  id="barber" type="select" className="input"><option>Barber1 </option><option>Barber2</option><option>Barber3</option></select> </div>
+                                            <div class="group"> <label for="barber" className="label">Services</label> <select  id="barber" type="select" className="input"><option> Hair Cut </option><option> Hair Cut + Shave </option><option> Shave </option></select> </div>
 				                            <div className="group"> <label for="barber fee" className="label">Barber Fee</label> <input  id="barber-fee" type="text" className="input" placeholder="Rs 300"/> </div>
 				                            <div className="group"> <label for="appointment-date" className="label">Appointment Date</label> <input id="appointment-date" type="date" className="input" /> </div>
 				                            <div className="group"> <label for="appointment-time" className="label">Appointment Time</label> <input id="appointment-time" type="time" className="input" /> </div>

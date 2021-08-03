@@ -21,7 +21,7 @@ const Home=()=>{
                         <div className="home-text">
                         <p>Hello</p>
                         <h2>I'm Shubham</h2>
-                        <h1>Senior Analyst<br/>Web Development/Software Development<br/>Capgemini India</h1>
+                        <h1>Senior Analyst<br/>Web Development/Software Development</h1>
                         <NavLink to="About" className="link-item btn-1 outer-shadow hover-in-shadow">More About Me</NavLink>
                         </div>
                     <div className="home-img">
