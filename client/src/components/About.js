@@ -3,6 +3,7 @@ import picture2 from '../images/profile-pic1.jpg';
 import 'bootstrap/dist/css/bootstrap.css';
 import {NavLink, useHistory} from 'react-router-dom';
 import '../App.css';
+import picture1 from '../images/picture1.jpg';
 
      
 
@@ -43,42 +44,41 @@ import '../App.css';
 
     return (
         <>
+            <section id="login">
+  			<div className="row">
+  				
+  			
+              <div className="column">
+	  				<img className="home-image" src={picture1} alt="picture1" />
+	  			</div>
 
-        <section className="about-section section" id="about">
-                <div className="container">
-                    <div className="row1">
-                        <div className="section-title">
-                            <h2 data-heading="main info">About Me</h2>
-                        </div>
-                    </div>
-                <form method="GET" id="about_page">  
-                <div className="row1">
-                    <div className="about-img">
-                        <div className="img-box inner-shadow">
-                            <img src={picture2} className="outer-shadow" alt="profile-pic"/>
-                        </div>
-                        
-                    </div>
-                    <div className="about-info">
-                            <p><span>HI!, I am {userData.name}</span> 
-                                <br/>Proficient in EM simulation tools like ANSYS HFSS | MATLAB |
-                                <br/>Programming Languages: C|C++
-                                <br/>Web Technologies: HTML,CSS,Javascript,Angular
-                                <br/>Passionate and fast learner.
-                                <br/>I enjoy management responsibilities too and have enjoyed my Teaching Assistant role at IIIT Gwalior.
-                                <br/>Personal Side :
-                                <br/>I am very much a kid at heart, love to play badminton, watch cricket, and travel whenever I'm awarded the opportunity.
-                            </p>
-                            
-                            <a href="cv.pdf" className="btn-1 outer-shadow hover-in-shadow">Download CV</a>
-                            <NavLink to="/Contact" className="link-item btn-1 outer-shadow hover-in-shadow">Hire Me</NavLink>
-                    </div>
-                </div>
-                </form>  
-                </div>
-                
-                        
-            </section>
+	  			<div className="column">
+	  				<div className="row">
+				    <div className="col-md-6 mx-auto p-0">
+				        <div className="card">
+				            <div className="login-box">
+				                <div className="login-snip" > 
+				                    <div className="login-space">
+				                        
+                                    <form method="POST" className="login">
+                                            <div class="group"> <label for="barber" className="label">Barber</label> <select  id="barber" type="select" className="input"><option>Barber1 </option><option>Barber2</option><option>Barber3</option></select> </div>
+				                            <div className="group"> <label for="barber fee" className="label">Barber Fee</label> <input  id="barber-fee" type="text" className="input" placeholder="Rs 300"/> </div>
+				                            <div className="group"> <label for="appointment-date" className="label">Appointment Date</label> <input id="appointment-date" type="date" className="input" /> </div>
+				                            <div className="group"> <label for="appointment-time" className="label">Appointment Time</label> <input id="appointment-time" type="time" className="input" /> </div>
+				                            <div className="group"> <button className="dashboard_form" type="submit" className="button" value="Book Appointment">Book Appointment</button>  </div>
+				                        </form>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+
+  			</div>
+  				
+			</div> 
+  		</section>
+        
         </>
     )
 }

@@ -13,7 +13,7 @@ const Logout=()=>{
             
         }).then((res)=>{
             history.push('/login',{replace:true});
-            if(res.status != 200){
+            if(res.status !== 200){
                 const error=new Error(res.error);
                 throw error;
             }

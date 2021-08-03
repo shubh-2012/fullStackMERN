@@ -180,40 +180,7 @@
 		  background: #f1f1f1;
 		}*/
 
-		#side-nav-bar ul{
-			  list-style-type: none;
-			  margin: 0;
-			  padding: 0;
-			  padding-top: 200px;
-			  width: 25%;
-			  position: fixed;
-			  height: 100%;
-			  overflow: auto;
-
-		}
-
 		
-
-  		#side-nav-bar li a{
-  			  display: block;
-			  color: #000;
-			  padding: 20px 16px;
-			  text-decoration: none;
-  		}
-
-  		#side-nav-bar li a.active {
-		  background-color:#c3cfe2;
-		  color: white;
-		}
-
-		#side-nav-bar li a:hover:not(.active) {
-		  background-color: #555;
-		  color: white;
-		}
-
-		.dashboard-active{
-			background-color: #c3cfe2;
-		}
 
 		/* Add a background color when the inputs get focus*/ 
 		input[type=text]:focus, input[type=password]:focus {
@@ -316,6 +283,13 @@
 
 		.foot {
 		    text-align: center;
+		}
+
+		#dashboard .card {
+			max-height: 480px;
+		    width: 400px;
+		    left: 400px;
+			margin-top: 40px;
 		}
 
 		.card {
@@ -595,6 +569,29 @@
 		.about-section .about-info .btn-1{
 			margin:30px 20px 0 0;
 		}
+
+		#book-appointment .login-box {
+		    width: 100%;
+		    margin: auto;
+		    margin-top: 30px;
+		    margin-left: 80px;
+		    min-width: 800px;
+		    min-height: 550px;
+		    position: relative;
+		    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+		   	background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+		}	
+
+		
+
+		
+		.dashboard_form{
+			border: #000000;
+			width: 50%;
+			padding: 30px;
+			margin-top: 30px;
+		}
+		
 		
 		
 
